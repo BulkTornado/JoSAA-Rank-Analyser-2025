@@ -49,13 +49,10 @@ for i in range(1, 7):
             # Strip whitespace
             row = [col.strip() for col in row]
 
-            # Convert last two columns to int
-            try:
-                row[-2] = int(row[-2])
-                row[-1] = int(row[-1])
-            except Exception as e:
-                print(f"grep -n \"{str(e).replace('invalid literal for int() with base 10: ', '').replace('\'','')}\" {fp}")
-            
+            # Convert last two columns to int            
+            row[-2] = int(row[-2])
+            row[-1] = int(row[-1])
+                                   
             rows_to_insert.append(tuple(row))
 
     # Insert into DB
