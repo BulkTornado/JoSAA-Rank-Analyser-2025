@@ -14,7 +14,7 @@ sys.exit()
 import csv
 import sqlite3
 
-seat_type = "OPEN"
+seat_type = "ALL"
 
 CSV_FILE = "JoSAA_Round_{num}_Result_{seat}.csv"
 DB_FILE = "JoSAA_Seat_Allotment.db"
