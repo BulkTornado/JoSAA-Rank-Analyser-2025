@@ -14,7 +14,9 @@ sys.exit()
 import csv
 import sqlite3
 
-CSV_FILE = "JoSAA_Round_6_Result.csv"
+seat_type = "OPEN"
+
+CSV_FILE = "JoSAA_Round_{num}_Result_{seat}.csv"
 DB_FILE = "JoSAA_Seat_Allotment.db"
 
 # Connect to SQLite
@@ -23,7 +25,8 @@ cursor = conn.cursor()
 
 # Create table
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS Round_6(
+CREATE TABLE IF NOT EXISTS JoSAA_Seat_Allotment(
+    round INT,
     institute_name TEXT,
     academic_program TEXT,
     quota TEXT,
@@ -33,30 +36,38 @@ CREATE TABLE IF NOT EXISTS Round_6(
     closing_rank INT
 );
 """)
-
-# Read CSV and prepare data
-rows_to_insert = []
-
-with open(CSV_FILE, 'r', newline='') as f:
-    reader = csv.reader(f, delimiter='\t')
-
-    for row in reader:
-        # Strip whitespace
-        row = [col.strip() for col in row]
-
-        # Convert last two columns to int
-        row[-2] = int(row[-2])
-        row[-1] = int(row[-1])
-
-        rows_to_insert.append(tuple(row))
-
-# Insert into DB
-cursor.executemany("""
-INSERT INTO Round_6
-VALUES (?, ?, ?, ?, ?, ?, ?)
-""", rows_to_insert)
-
 conn.commit()
+
+for i in range(1, 7):
+    # Read CSV and prepare data
+    rows_to_insert = []
+    fp = CSV_FILE.format(num=i, seat=seat_type)
+    with open(fp, 'r', newline='') as f:
+        reader = csv.reader(f, delimiter='\t')
+
+        for row in reader:
+            # Strip whitespace
+            row = [col.strip() for col in row]
+
+            # Convert last two columns to int
+            try:
+                row[-2] = int(row[-2])
+                row[-1] = int(row[-1])
+            except Exception as e:
+                print(f"grep -n \"{str(e).replace('invalid literal for int() with base 10: ', '').replace('\'','')}\" {fp}")
+            
+            rows_to_insert.append(tuple(row))
+
+    # Insert into DB
+    cursor.executemany(f"""
+    INSERT INTO JoSAA_Seat_Allotment
+    VALUES ({i}, ?, ?, ?, ?, ?, ?, ?)
+    """, rows_to_insert)
+
+
+    conn.commit()
+
+    print(f"Round {i}: {len(rows_to_insert)} rows inserted")
+
 conn.close()
 
-print(f"Number of rows inserted: {len(rows_to_insert)}")

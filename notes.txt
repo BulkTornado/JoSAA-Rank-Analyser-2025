@@ -1,0 +1,32 @@
+important note, in the Round 1 OPEN category, line 1426, the CR was a decimal.
+fixed it so now its an integer as expected.
+I guess NIT Mizoram gave a single wrong record and JoSAA didn't confirmed
+it before publishing. this almost broke my script, glad it's ok :D
+
+
+omg, another error this time, Round 1 OPEN category, line 1433, OR and CR both was a decimal.
+again, NIT Mizoram. bruh.
+
+omg another error, Round 2 OPEN category, line 1413, OR and CR both decimal.
+
+R2 OPEN, L1421, OR and CR both decimal
+
+R2 OPEN, L1424, CR decimal
+
+R2 OPEN, L1427, CR decimal
+
+R2 OPEN, L1431, OR and CR
+
+R2 OPEN, L1434, CR
+
+---
+R3 OPEN, L1420, OR and CR
+
+R3 OPEN, L1426 and L1432, CR
+---
+
+R4 == R3
+
+R5 == R3
+
+R6 == R3
