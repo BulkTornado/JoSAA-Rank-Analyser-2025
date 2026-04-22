@@ -17,7 +17,7 @@ Thus, I just exported all of the data to an Excel spreadsheet named 'JoSAA All R
 
 # Source
 
-JoSAA website: https://josaa.nic.in/
-JoSAA Seat Allotment Result for 2025: https://josaa.admissions.nic.in/applicant/SeatAllotmentResult/CurrentORCR.aspx
+JoSAA website: https://josaa.nic.in/ 
+JoSAA Seat Allotment Result for 2025: https://josaa.admissions.nic.in/applicant/SeatAllotmentResult/CurrentORCR.aspx 
 JoSAA Seat Allotment Result for previous years(**not used**): https://josaa.admissions.nic.in/applicant/seatmatrix/openingclosingrankarchieve.aspx
 
