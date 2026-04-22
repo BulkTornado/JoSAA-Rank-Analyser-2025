@@ -1,18 +1,96 @@
-SELECT round, institute_name, academic_program, quota, seat_type, gender, opening_rank, closing_rank FROM JoSAA_Seat_Allotment WHERE quota = 'OS' AND 291402 BETWEEN opening_rank AND closing_rank ORDER BY seat_type, round;
+SELECT round, institute_name, academic_program, quota, seat_type, gender, opening_rank, closing_rank FROM JoSAA_Seat_Allotment WHERE quota = 'OS' AND 291402 BETWEEN (opening_rank-10000) AND (closing_rank+10000) ORDER BY seat_type, round;
 
-SELECT round, institute_name, academic_program, quota, seat_type, gender, opening_rank, closing_rank FROM JoSAA_Seat_Allotment WHERE 291402 BETWEEN opening_rank AND closing_rank ORDER BY seat_type, round;
+SELECT round, institute_name, academic_program, quota, seat_type, gender, opening_rank, closing_rank FROM JoSAA_Seat_Allotment WHERE 291402 BETWEEN (opening_rank-10000) AND (closing_rank+10000) ORDER BY seat_type, round;
 
 SELECT DISTINCT(academic_program) FROM JoSAA_Seat_Allotment ORDER BY academic_program;
 
 SELECT * FROM JoSAA_Seat_Allotment
 WHERE
-	round = 6 AND
+	round = 1 AND
 	gender != 'Female-only (including Supernumerary)'
-	AND quota NOT IN ('LA', 'JK', 'HS')
-	AND 291402 BETWEEN opening_rank AND closing_rank
+	AND quota NOT IN ('LA', 'JK')
+	AND 291402 BETWEEN (opening_rank-10000) AND (closing_rank+10000)
+	AND (
+		institute_name LIKE '%West Bengal%'
+		OR institute_name LIKE '%Patna$'
+		OR institute_name LIKE '%Bihar%'
+		OR institute_name LIKE '%Ranchi%'
+	)
 ORDER BY seat_type, round;
 
+SELECT * FROM JoSAA_Seat_Allotment
+WHERE
+        round = 2 AND
+        gender != 'Female-only (including Supernumerary)'
+        AND quota NOT IN ('LA', 'JK')
+        AND 291402 BETWEEN (opening_rank-10000) AND (closing_rank+10000)
+        AND (
+                institute_name LIKE '%West Bengal%'
+                OR institute_name LIKE '%Patna$'
+                OR institute_name LIKE '%Bihar%'
+                OR institute_name LIKE '%Ranchi%'
+        )
+ORDER BY seat_type, round;
 
+SELECT * FROM JoSAA_Seat_Allotment
+WHERE
+        round = 3 AND
+        gender != 'Female-only (including Supernumerary)'
+        AND quota NOT IN ('LA', 'JK')
+        AND 291402 BETWEEN (opening_rank-10000) AND (closing_rank+10000)
+        AND (
+                institute_name LIKE '%West Bengal%'
+                OR institute_name LIKE '%Patna$'
+                OR institute_name LIKE '%Bihar%'
+                OR institute_name LIKE '%Ranchi%'
+        )
+ORDER BY seat_type, round;
+
+SELECT * FROM JoSAA_Seat_Allotment
+WHERE
+        round = 4 AND
+        gender != 'Female-only (including Supernumerary)'
+        AND quota NOT IN ('LA', 'JK')
+        AND 291402 BETWEEN (opening_rank-10000) AND (closing_rank+10000)
+        AND (
+                institute_name LIKE '%West Bengal%'
+                OR institute_name LIKE '%Patna$'
+                OR institute_name LIKE '%Bihar%'
+                OR institute_name LIKE '%Ranchi%'
+        )
+ORDER BY seat_type, round;
+
+SELECT * FROM JoSAA_Seat_Allotment
+WHERE
+        round = 5 AND
+        gender != 'Female-only (including Supernumerary)'
+        AND quota NOT IN ('LA', 'JK')
+        AND 291402 BETWEEN (opening_rank-10000) AND (closing_rank+10000)
+        AND (
+                institute_name LIKE '%West Bengal%'
+                OR institute_name LIKE '%Patna$'
+                OR institute_name LIKE '%Bihar%'
+                OR institute_name LIKE '%Ranchi%'
+        )
+ORDER BY seat_type, round;
+
+SELECT * FROM JoSAA_Seat_Allotment
+WHERE
+        round = 6 AND
+        gender != 'Female-only (including Supernumerary)'
+        AND quota NOT IN ('LA', 'JK')
+        AND 291402 BETWEEN (opening_rank-10000) AND (closing_rank+10000)
+        AND (
+                institute_name LIKE '%West Bengal%'
+                OR institute_name LIKE '%Patna$'
+                OR institute_name LIKE '%Bihar%'
+                OR institute_name LIKE '%Ranchi%'
+        )
+ORDER BY seat_type, round;
 
 	AND academic_program IN ('')
+
+7.68440
+
+291402
 
